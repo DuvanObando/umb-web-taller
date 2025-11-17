@@ -1,0 +1,62 @@
+#root {
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 640px;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.task-form button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.task-list li {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-list .done {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.error {
+  color: #dc2626;
+}
