@@ -1,0 +1,59 @@
+﻿import "./styles.css";
+import { useEffect, useState } from "react";
+
+const API_URL = "https://example.com/api/tasks";
+
+export default function App() {
+  const [tasks, setTasks] = useState([]);
+  const [title, setTitle] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(API_URL)
+      .then((response) => response.json())
+      .then((data) => setTasks(data))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (!title.trim()) return;
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ titulo: title })
+    });
+
+    if (response.ok) {
+      const newTask = await response.json();
+      setTasks([newTask, ...tasks]);
+      setTitle("");
+    }
+  };
+
+  return (
+    <div className="App">
+      <h1>Lista de tareas</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Nueva tarea"
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+        />
+        <button type="submit">Agregar tarea</button>
+      </form>
+
+      {loading ? (
+        <p>Cargando...</p>
+      ) : (
+        <ul>
+          {tasks.map((task) => (
+            <li key={task.id}>{task.titulo}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}

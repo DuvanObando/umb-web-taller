@@ -1,0 +1,6 @@
+﻿.git
+node_modules
+api/*.env
+.env
+Dockerfile
+README.md
