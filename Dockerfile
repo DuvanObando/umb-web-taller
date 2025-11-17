@@ -1,8 +1,11 @@
 ﻿# Usar una imagen oficial de PHP con Apache
 FROM php:8.2-apache
 
-# Copiar los archivos de la API al directorio web del servidor
-COPY api/ /var/www/html/
+WORKDIR /var/www/html
 
-# Habilitar mod_rewrite para URLs amigables
-RUN a2enmod rewrite
+# Copiar los archivos de la API al directorio web del servidor
+COPY api/ .
+
+# Habilitar mod_rewrite y permitir .htaccess
+RUN a2enmod rewrite \
+    && sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
