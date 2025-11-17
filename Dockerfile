@@ -4,7 +4,7 @@ FROM php:8.2-apache
 WORKDIR /var/www/html
 
 # Copiar los archivos de la API al directorio web del servidor
-COPY api/ .
+COPY backend/api/ .
 
 # Habilitar mod_rewrite y permitir .htaccess
 RUN a2enmod rewrite \

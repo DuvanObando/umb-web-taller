@@ -1,6 +1,6 @@
 ﻿.git
 node_modules
-api/*.env
+backend/api/*.env
 .env
 Dockerfile
 README.md
