@@ -1,17 +1,17 @@
 ﻿function describirPrioridad(nivel) {
-  let mensaje = ''Prioridad no definida'';
+  let mensaje = 'Prioridad no definida';
   switch (nivel) {
-    case ''alta'':
-      mensaje = ''Prioridad alta: atender de inmediato'';
+    case 'alta':
+      mensaje = 'Prioridad alta: atender de inmediato';
       break;
-    case ''media'':
-      mensaje = ''Prioridad media: agendar pronto'';
+    case 'media':
+      mensaje = 'Prioridad media: agendar pronto';
       break;
-    case ''baja'':
-      mensaje = ''Prioridad baja: se puede esperar'';
+    case 'baja':
+      mensaje = 'Prioridad baja: se puede esperar';
       break;
     default:
-      mensaje = ''Sin prioridad registrada'';
+      mensaje = 'Sin prioridad registrada';
   }
   return mensaje;
 }
@@ -27,15 +27,15 @@ function sumarSinSeis() {
   return suma;
 }
 
-window.addEventListener(''DOMContentLoaded'', () => {
-  const prioridadTexto = document.getElementById(''prioridad-texto'');
-  const sumaTexto = document.getElementById(''suma-texto'');
+window.addEventListener('DOMContentLoaded', () => {
+  const prioridadTexto = document.getElementById('prioridad-texto');
+  const sumaTexto = document.getElementById('suma-texto');
 
   if (prioridadTexto) {
-    prioridadTexto.textContent = describirPrioridad(''media'');
+    prioridadTexto.textContent = describirPrioridad('media');
   }
 
   if (sumaTexto) {
-    sumaTexto.textContent = ''Suma 1..10 sin el 6: '' + sumarSinSeis();
+    sumaTexto.textContent = 'Suma 1..10 sin el 6: ' + sumarSinSeis();
   }
 });
